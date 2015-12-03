@@ -1,0 +1,37 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3 http://maven.apache.org/xsd/assembly-1.1.3.xsd">
+	<id>package</id>
+	<formats>
+		<format>war</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<files>
+		<file>
+			<source>src/main/webapp/WEB-INF/web.xml</source>
+			<outputDirectory>WEB-INF</outputDirectory>
+		</file>
+	</files>
+	<fileSets>
+		<fileSet>
+			<directory>target/classes</directory>
+			<outputDirectory>WEB-INF/classes</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>download</directory>
+			<outputDirectory>download</outputDirectory>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<dependencySet>
+			<scope>runtime</scope>
+			<excludes>
+				<exclude>org.eclipse.jetty:jetty-*:jar:*</exclude>
+				<exclude>com.stone:jetty:jar:*</exclude>
+			</excludes>
+			<useStrictFiltering>true</useStrictFiltering>
+			<useTransitiveFiltering>true</useTransitiveFiltering>
+			<useProjectArtifact>false</useProjectArtifact>
+			<outputDirectory>WEB-INF/lib</outputDirectory>
+		</dependencySet>
+	</dependencySets>
+</assembly>

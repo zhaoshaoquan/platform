@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.stone.demo.mapper.DemoMapper">
+
+	<resultMap type="com.stone.demo.domain.Demo" id="demo">
+		<id column="id" property="id" jdbcType="INTEGER"/>
+		<result column="u_name" property="name" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<select id="selectAll" resultMap="demo">
+		select * from t_demo
+	</select>
+
+	<select id="selectByPage" parameterType="page" resultMap="demo">
+		select * from t_demo
+		<where>
+			<if test="p.name!=null and p.name!=''">
+				and u_name=#{p.name}
+			</if>
+		</where>
+		order by id desc
+	</select>
+	
+</mapper>
