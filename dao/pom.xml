@@ -44,15 +44,16 @@
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		<!-- Oracle Jdbc驱动程序 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.oracle</groupId> -->
+<!-- 			<artifactId>ojdbc6</artifactId> -->
+<!--   			<version>1.6</version> -->
+<!-- 		</dependency> -->
 		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-  			<version>1.6</version>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
+			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-  			<version>5.1.26</version>
+			<version>5.1.37</version>
 		</dependency>
 		<dependency>
 			<groupId>com.atomikos</groupId>
