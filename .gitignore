@@ -1,7 +1,7 @@
 /**/target/
 /**/.settings/
-/**/log
-/**/logs
+/**/log/
+/**/logs/
 /**/.project
 /**/.classpath
 /**/.log
