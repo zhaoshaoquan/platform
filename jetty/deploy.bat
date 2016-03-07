@@ -1,3 +1,4 @@
 @echo off
-mvn clean install deploy -Dmaven.test.skip=true
+cd %~dp0
+call mvn clean install deploy -Dmaven.test.skip=true
 pause
