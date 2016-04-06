@@ -161,6 +161,7 @@
 		<module>dao</module>
 		<module>build</module>
 		<module>demo</module>
+		<module>extjs</module>
 		<module>baseinfo</module>
 	</modules>
 </project>
