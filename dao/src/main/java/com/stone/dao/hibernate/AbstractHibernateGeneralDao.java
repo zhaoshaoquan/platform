@@ -11,17 +11,15 @@ import javax.persistence.Id;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import com.stone.commons.page.Page;
 import com.stone.dao.comm.GeneralDao;
 
-@Repository
+//@Repository
 public abstract class AbstractHibernateGeneralDao<E, PK extends Serializable> implements GeneralDao<E, PK> {
 	@SuppressWarnings("unchecked")
 	private Class<E> entityClass = (Class<E>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-	@Autowired
+//	@Autowired
 	protected SessionFactory sessionFactory;
 	
 	protected Session getCurrentSession() {

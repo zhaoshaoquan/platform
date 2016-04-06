@@ -1,5 +1,7 @@
 package com.stone.dao.config;
 
+import static com.stone.commons.GlobalConfig.get;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -40,7 +42,7 @@ public class JpaConfig implements BeanFactoryPostProcessor, Ordered {
 			entityManagerFactory.setPersistenceUnitName("entityManager");
 			entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter);
 			entityManagerFactory.setJpaProperties(jpaProperties);
-			entityManagerFactory.setPackagesToScan(new String[]{"com.stone.**.domain","org.**.domain"});
+			entityManagerFactory.setPackagesToScan(get("jpa.base.packages", "com.**.domain").split(","));
 			entityManagerFactory.afterPropertiesSet();
 			beanFactory.registerSingleton("entityManagerFactory", entityManagerFactory);
 		}

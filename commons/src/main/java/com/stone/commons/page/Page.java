@@ -11,13 +11,17 @@ import java.util.Map;
 public class Page<T> implements Serializable, Iterable<T> {
 	private static final long serialVersionUID = 7701386586632916397L;
 	/**当前页数*/
-	private  int page;
+	private int page;
 	/**每页显示的行数*/
-	private  int size;
+	private int size;
 	/**记录总数*/
 	private long total;
 	/**查询的数据集合*/
 	private List<T> result = new ArrayList<T>();
+	/**条件集合*/
+	private List<Condition> conditions = new ArrayList<Condition>();
+	/**排序集合*/
+	private List<Order> orders = new ArrayList<Order>();
 	/**查询参数*/
 	private Map<String, Object> params = new HashMap<String, Object>();
 	
@@ -42,6 +46,7 @@ public class Page<T> implements Serializable, Iterable<T> {
 		}
 	}
 
+	
 	public long getTotal(){
 		return total;
 	}
@@ -60,6 +65,34 @@ public class Page<T> implements Serializable, Iterable<T> {
 		this.result.addAll((Collection<? extends T>)result);
 	}
 
+	public List<Condition> getConditions(){
+		return conditions;
+	}
+
+	public void setConditions(List<Condition> conditions){
+		this.conditions.clear();
+		this.conditions.addAll(conditions);
+	}
+
+	public Page<T> addCondition(Condition condition){
+		this.conditions.add(condition);
+		return this;
+	}
+	
+	public List<Order> getOrders(){
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders){
+		this.orders.clear();
+		this.orders.addAll(orders);
+	}
+
+	public Page<T> addOrder(Order order){
+		this.orders.add(order);
+		return this;
+	}
+	
 	public Map<String, Object> getP(){
 		return params;
 	}

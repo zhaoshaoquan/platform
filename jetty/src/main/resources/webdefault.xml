@@ -35,7 +35,7 @@
   <!-- Context params to control Session Cookies                            -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
   <!--
-    UNCOMMENT TO ACTIVATE <context-param> <param-name>org.eclipse.jetty.servlet.SessionDomain</param-name> <param-value>127.0.0.1</param-value> </context-param> <context-param>
+    UNCOMMENT TO ACTIVATE <context-param> <param-name>org.eclipse.jetty.servlet.SessionDomain</param-name> <param-value>127.1.0.0</param-value> </context-param> <context-param>
     <param-name>org.eclipse.jetty.servlet.SessionPath</param-name> <param-value>/</param-value> </context-param> <context-param> <param-name>org.eclipse.jetty.servlet.MaxAge</param-name>
     <param-value>-1</param-value> </context-param>
   -->

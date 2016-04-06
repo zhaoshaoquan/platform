@@ -21,8 +21,7 @@ public class SoftKey {
 
 	// 以下用于将16进制字符串转化为无符号长整型
 	private int HexToInt(String s) {
-		String[] hexch = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-				"A", "B", "C", "D", "E", "F" };
+		String[] hexch = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
 		int i, j;
 		int r, n, k;
 		String ch;
@@ -45,7 +44,6 @@ public class SoftKey {
 
 	// 使用增强算法，加密字符串
 	public String StrEnc(String InString, String Key) {
-
 		byte[] b, outb;
 		byte[] temp_b = InString.getBytes();
 		byte[] temp = new byte[8], outtemp = new byte[8];
@@ -84,7 +82,6 @@ public class SoftKey {
 
 	// 使用增强算法，解密字符串
 	public String StrDec(String InString, String Key) {
-
 		byte[] b, outb;
 		byte[] temp = new byte[8], outtemp = new byte[8];
 		int n, i, nlen, outlen;
@@ -120,7 +117,6 @@ public class SoftKey {
 	}
 
 	public void EnCode(byte[] inb, byte[] outb, String Key) {
-
 		long cnDelta, y, z, a, b, c, d, temp_2;
 		long[] buf = new long[16];
 		int n, i, nlen;
@@ -196,7 +192,6 @@ public class SoftKey {
 	}
 
 	public void DeCode(byte[] inb, byte[] outb, String Key) {
-
 		long cnDelta, y, z, a, b, c, d, temp_2;
 		long[] buf = new long[16];
 		int n, i, nlen;

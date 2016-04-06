@@ -39,7 +39,7 @@ public class DataSourceConfig implements BeanFactoryPostProcessor, Ordered {
 		DruidDataSource dataSource = new DruidDataSource();
 		BeanWrapper beanWrapper = new BeanWrapperImpl(dataSource);
 		beanWrapper.setPropertyValues(dataSourceProperties());
-		dataSource.setName(StringUtils.isEmpty(dataSource.getName()) ? "water" : dataSource.getName());
+		dataSource.setName(StringUtils.isEmpty(dataSource.getName()) ? "defaultDataSource" : dataSource.getName());
 		beanFactory.registerSingleton("dataSource", dataSource);
 	}
 

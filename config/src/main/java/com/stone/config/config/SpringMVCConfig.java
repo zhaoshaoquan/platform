@@ -1,9 +1,15 @@
 package com.stone.config.config;
 
+import static com.stone.commons.GlobalConfig.get;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -21,6 +27,8 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 import com.stone.commons.ScanPackageClasses;
 import com.stone.commons.annotation.FreemarkerTag;
+import com.stone.config.HeadItem;
+import com.stone.config.commons.HeadUtil;
 import com.stone.config.commons.SpringUtil;
 
 @Configuration
@@ -30,6 +38,7 @@ public class SpringMVCConfig implements ApplicationContextAware{
 	private ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
 
 	public SpringMVCConfig(){
+		
 	}
 
 	@Bean
@@ -61,24 +70,6 @@ public class SpringMVCConfig implements ApplicationContextAware{
 	}
 
 	/**
-	 * 设置Freemarker静态模块类
-	 * @return FreemarkerStaticModels
-	 * @throws Exception
-	 */
-	// @Bean
-	// public FreemarkerStaticModels freemarkerStaticModels() throws Exception{
-	// FreemarkerStaticModels freemarkerStaticModels =
-	// FreemarkerStaticModels.getInstance();
-	// Resource[] resources =
-	// resourcePatternResolver.getResources("classpath*:freemarkerstatic.properties");
-	// PropertiesFactoryBean propertiesFactoryBean = new
-	// PropertiesFactoryBean();
-	// propertiesFactoryBean.setLocations(resources);
-	// freemarkerStaticModels.setStaticModels(propertiesFactoryBean.createProperties());
-	// return freemarkerStaticModels;
-	// }
-
-	/**
 	 * 初始化Freemarker资源信息
 	 * @return FreeMarkerConfigurer
 	 * @throws Exception
@@ -99,33 +90,28 @@ public class SpringMVCConfig implements ApplicationContextAware{
 
 	protected Map<String, Object> buildFreemarkerVariables() throws Exception{
 		Map<String, Object> variables = new HashMap<String, Object>();
-//		Set<String> extpathSet = new HashSet<String>();
-//		List<String> headset = new ArrayList<String>();
-		/*for(ConfigItem item : ConfigUtil.configList){
-			String system_ext_path = item.getSystemExtPath();
-			if(system_ext_path != null) {
-				String[] system_ext_paths = system_ext_path.split(",");
-				for(String path : system_ext_paths){
-					if(StringUtils.isNotBlank(path)) {
-						extpathSet.add(path);
-					}
+		Set<String> extPathSet = new HashSet<String>();
+		List<String> headHtmlList = new ArrayList<String>();
+		for(HeadItem head : HeadUtil.heads){
+			String extPaths = head.getSystemExtPath();
+			if(StringUtils.isNotBlank(extPaths)){
+				for(String path : extPaths.split(",")){
+					if(StringUtils.isNotBlank(path))extPathSet.add(path);
 				}
 			}
-			String headHtml = item.getHeadHtml();
-			if(headHtml != null) {
-				String[] head_htmls = headHtml.toString().split(",");
-				for(int i = 0; i < head_htmls.length; i++){
-					headset.add(head_htmls[i]);
+			String headHtmls = head.getHeadHtml();
+			if(StringUtils.isNotBlank(headHtmls)){
+				for(String headhtml : headHtmls.split(",")){
+					if(StringUtils.isNotBlank(headhtml))headHtmlList.add(headhtml);
 				}
 			}
-		}*/
-//		variables.put("sys_ext_paths", extpathSet);
-//		variables.put("head_htmls", headset);
-//		variables.putAll(freemarkerStaticModels());
+		}
+		variables.put("head_htmls", headHtmlList);
+		variables.put("sys_ext_paths", extPathSet);
 		
 		//加载所有Freemarker标签
 		ScanPackageClasses spc = new ScanPackageClasses(FreemarkerTag.class);
-		Set<Class<?>> tagClassSet = spc.doScan("com.stone");
+		Set<Class<?>> tagClassSet = spc.doScan(get("freemarker.tag.base.package", "com"));
 		for(Class<?> clazz : tagClassSet){
 			FreemarkerTag ft = clazz.getAnnotation(FreemarkerTag.class);
 			variables.put(ft.name(), clazz.newInstance());

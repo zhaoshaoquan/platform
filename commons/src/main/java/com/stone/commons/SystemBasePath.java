@@ -1,11 +1,11 @@
 package com.stone.commons;
 
+import static com.stone.commons.GlobalConfig.get;
+
 import java.io.File;
-import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
 
 public class SystemBasePath {
 	private static final Logger log = LoggerFactory.getLogger(SystemBasePath.class);
@@ -17,10 +17,7 @@ public class SystemBasePath {
 	
 	public static void initPath(String path){
 		try{
-			Properties p = new Properties();
-			ClassPathResource cpr = new ClassPathResource("config.properties");
-			p.load(cpr.getInputStream());
-			if("user.dir".equals(p.getProperty("root.path", "user.dir").toLowerCase())){
+			if("user.dir".equals(get("root.path", "user.dir").toLowerCase())){
 				rootDir = new File(System.getProperty("user.dir"));
 			}else{
 				rootDir = new File(path);
@@ -28,10 +25,10 @@ public class SystemBasePath {
 			tempDir = new File(rootDir, "temp");
 			downloadDir = new File(rootDir, "download");
 			
-			if("root.path".equals(p.getProperty("upload.path", "root.path").toLowerCase())){
+			if("root.path".equals(get("upload.path", "root.path").toLowerCase())){
 				uploadDir = new File(rootDir, "upload");
 			}else{
-				uploadDir = new File(p.getProperty("upload.path"), "upload");
+				uploadDir = new File(get("upload.path"), "upload");
 			}
 			ueditorDir = new File(uploadDir, "ueditor");
 			

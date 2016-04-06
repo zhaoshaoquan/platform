@@ -16,7 +16,6 @@ public class PreciseComputeUtil {
 	* @param v2 加数 
 	* @return 两个参数的和 
 	*/  
-	  
 	public static BigDecimal add(double v1, double v2) {  
 	   BigDecimal b1 = new BigDecimal(Double.toString(v1));  
 	   BigDecimal b2 = new BigDecimal(Double.toString(v2));  
@@ -77,7 +76,6 @@ public class PreciseComputeUtil {
 	* @param v2 除数 
 	* @return 两个参数的商 
 	*/  
-	  
 	public static BigDecimal div(double v1, double v2) {  
 	   return div(v1, v2, DEF_DIV_SCALE);  
 	}  

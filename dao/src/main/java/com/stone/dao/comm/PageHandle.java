@@ -93,7 +93,6 @@ public class PageHandle{
 
 	/**
 	 * 解析统计ql语句
-	 * 
 	 * @param qlString
 	 * @return
 	 * @throws Exception
@@ -131,53 +130,50 @@ public class PageHandle{
 
 	/**
 	 * 格式化ql
-	 * 
-	 * @param qlString
+	 * @param hql
 	 * @return
 	 */
-	public static String convertQL(String qlString){
-		String result = qlString.replaceAll("from", "FROM").replaceAll("distinct", "DISTINCT")
+	public static String convertHQL(String hql){
+		String result = hql.replaceAll("from", "FROM").replaceAll("distinct", "DISTINCT")
 				.replaceAll("left join", "LEFT JOIN").replaceAll("fetch", "FETCH").replaceAll("select", "SELECT")
 				.replaceAll("where", "WHERE").replaceAll("order by", "ORDER BY").replaceAll("asc", "ASC")
 				.replaceAll("desc", "DESC").trim();
-		log.debug("qlString = {}", result);
+		log.debug("hql = {}", result);
 		return result;
 	}
 
 	/**
 	 * 解析ql语句和参数
-	 * 
-	 * @param qlString
+	 * @param hql
 	 * @param params
 	 * @param values
 	 * @return
 	 */
-	public static String preQLAndParam(String qlString, Map<String, Object> params, List<Object> values){
-		log.debug("开始解析qlString：{}", qlString);
-		Map<Integer, Object> map_values = new HashMap<Integer, Object>();
-		Map<Integer, String> map_names = new HashMap<Integer, String>();
+	public static String preHQLAndParam(String hql, Map<String, Object> params, List<Object> values){
+		if(params == null || params.size()==0)return hql;
+		log.debug("开始解析hql：{}", hql);
+		Map<Integer, String> mapName = new HashMap<Integer, String>();
+		Map<Integer, Object> mapValue = new HashMap<Integer, Object>();
 		List<Integer> list = new ArrayList<Integer>();
-		String preQL = qlString;
-		if(params != null){
-			for(String key : params.keySet()){
-				int index = qlString.indexOf(":" + key);
-				Object value = params.get(key);
-				preQL = preQL.replaceAll(":" + key + " ", "? ");
-				list.add(index);
-				map_values.put(index, value);
-				map_names.put(index, key);
-			}
-			log.debug("解析完成qlString:{}", preQL);
-			Collections.sort(list);
-			log.debug("最终参数值顺序(参数名->参数位置->参数值)：");
-			for(Integer position : list){
-				if(log.isDebugEnabled()){
-					System.out.println(map_names.get(position) + "->" + position + "->" + map_values.get(position));
-				}
-				values.add(map_values.get(position));
-			}
+		String preHQL = hql;
+		for(String key : params.keySet()){
+			int index = hql.indexOf(":" + key);
+			Object value = params.get(key);
+			preHQL = preHQL.replaceAll(":"+key, "?");
+			list.add(index);
+			mapName.put(index, key);
+			mapValue.put(index, value);
 		}
-		return preQL;
+		log.debug("解析完成hql：{}", preHQL);
+		Collections.sort(list);
+		log.debug("最终参数值顺序(参数名->参数位置->参数值)：");
+		for(Integer position : list){
+			if(log.isDebugEnabled()){
+				System.out.println(mapName.get(position) + "->" + position + "->" + mapValue.get(position));
+			}
+			values.add(mapValue.get(position));
+		}
+		return preHQL;
 	}
 
 }

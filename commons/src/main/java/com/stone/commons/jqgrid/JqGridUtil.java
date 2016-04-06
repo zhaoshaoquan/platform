@@ -14,7 +14,7 @@ import com.stone.commons.page.Condition;
 import com.stone.commons.page.Operation;
 import com.stone.commons.page.Order;
 import com.stone.commons.page.OrderType;
-import com.stone.commons.page.PageBean;
+import com.stone.commons.page.Page;
 import com.stone.commons.page.RelateType;
 
 public class JqGridUtil{
@@ -41,39 +41,39 @@ public class JqGridUtil{
 		map.put("bt", Operation.BETWEEN);
 	}
 
-	public static <T> PageBean<T> getPageBean(QueryParams queryParams) throws Exception{
-		PageBean<T> pageBean = new PageBean<T>();
-		pageBean.setCurrentPage(queryParams.getPage());
-		pageBean.setRowsPerPage(queryParams.getRows());
+	public static <T> Page<T> getPageBean(QueryParams queryParams) throws Exception{
+		Page<T> page = new Page<T>();
+		page.setPageNumber(queryParams.getPage());
+		page.setPageSize(queryParams.getRows());
 		String searchField = queryParams.getSearchField();
 		String SearchString = queryParams.getSearchString();
 		Operation operation = map.get(queryParams.getSearchOper());
 		String sidx = queryParams.getSidx();
 		String sord = queryParams.getSord();
 		if(StringUtils.isNotEmpty(searchField)) {
-			pageBean.addCondition(new Condition(searchField, SearchString, operation));
+			page.addCondition(new Condition(searchField, SearchString, operation));
 		}
 		if(StringUtils.isNotEmpty(sidx)) {
-			pageBean.addOrder(new Order(sidx, OrderType.valueOf(sord.toUpperCase())));
+			page.addOrder(new Order(sidx, OrderType.valueOf(sord.toUpperCase())));
 		}
 		String content = queryParams.getFilters();
 		if(StringUtils.isNotEmpty(content)) {
 			Filters filters = objectMapper.readValue(content, Filters.class);
 			String groupOp = filters.getGroupOp();
 			for(RuleItem ruleItem : filters.getRules()){
-				pageBean.addCondition(new Condition(RelateType.valueOf(groupOp.toUpperCase()), ruleItem.getField(),
+				page.addCondition(new Condition(RelateType.valueOf(groupOp.toUpperCase()), ruleItem.getField(),
 						ruleItem.getData(), map.get(ruleItem.getOp())));
 			}
 		}
-		return pageBean;
+		return page;
 	}
 
-	public static <T> JsonReader<T> getJsonReader(PageBean<T> pageBean){
+	public static <T> JsonReader<T> getJsonReader(Page<T> page){
 		JsonReader<T> jsonReader = new JsonReader<T>();
-		jsonReader.setPage(pageBean.getCurrentPage());
-		jsonReader.setTotal(pageBean.getTotalPages());
-		jsonReader.setRecords(pageBean.getTotalRows());
-		List<?> list = pageBean.getResult();
+		jsonReader.setPage(page.getPageNumber());
+		jsonReader.setTotal(page.getPageSize());
+		jsonReader.setRecords(page.getTotal());
+		List<?> list = page.getResult();
 		if(list.size() != 0) {
 			Object obj = list.get(0);
 			if(obj.getClass().isArray()) {
@@ -81,7 +81,7 @@ public class JqGridUtil{
 					//jsonReader.addRows(new RowItem(i + 1, (Object[]) list.get(i)));
 				}
 			}else{
-				jsonReader.setRows(pageBean.getResult());
+				jsonReader.setRows(page.getResult());
 			}
 		}
 		return jsonReader;

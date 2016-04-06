@@ -55,7 +55,6 @@ public class CipherUtil {
      * HmacMD5算法
      */ 
     private static final String ALGORITHM_HMACMD5 = "HmacMD5";
-    
     /** 
      * HmacMD5算法默认key
      */
@@ -76,7 +75,6 @@ public class CipherUtil {
      * HmacSHA512算法
      */ 
     public static final String ALGORITHM_HMACSHA512 = "HmacSHA512";
-    
     /**
 	 * DES 算法 
 	 */
@@ -85,45 +83,36 @@ public class CipherUtil {
      * PBE算法
      */
     private static final String ALGORITHM_PBE = "PBEWITHMD5andDES";
-
     /**
      * AESkey
      */
     private static final String KEY_AES = "AES";
-
     /**
      * AES算法
      */
     private static final String ALGORITHM_AES = "AES/CBC/PKCS5Padding";
-
     /**
      * RSA算法
      */
     private static final String KEY_ALGORITHM = "RSA";
-
     /**
      * 数字签名
      */
     private static final String SIGNATURE_ALGORITHM = "MD5withRSA";
-
     /**
      * 公钥
      */
     private static final String RSAPUBLIC_KEY = "RSAPublicKey";
-
     /**
      * 私钥
      */
     private static final String RSAPRIVATE_KEY = "RSAPrivateKey";
-
     /**
      * D-H算法
      */
     private static final String ALGORITHM_DH = "DH";
-
     /**
      * 默认密钥字节数
-     *
      * <pre>
      * DH
      * Default Keysize 1024
@@ -131,22 +120,18 @@ public class CipherUtil {
      * </pre>
      */
     private static final int DH_KEY_SIZE = 1024;
-
     /**
      * DH加密下需要一种对称加密算法对数据加密，这里我们使用DES，也可以使用其他对称加密算法。
      */
     private static final String SECRET_ALGORITHM = "DES";
-
     /**
      * DH公钥
      */
     private static final String DHPUBLIC_KEY = "DHPublicKey";
-
     /**
      * DH私钥
      */
     private static final String DHPRIVATE_KEY = "DHPrivateKey";
-
     /**
      * Java密钥库(Java Key Store，JKS)KEY_STORE
      */

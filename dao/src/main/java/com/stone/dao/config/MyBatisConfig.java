@@ -1,5 +1,7 @@
 package com.stone.dao.config;
 
+import static com.stone.commons.GlobalConfig.get;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -60,7 +62,7 @@ public class MyBatisConfig implements BeanFactoryPostProcessor, Ordered {
 	@Bean
 	public MapperScannerConfigurer mapperScannerConfigurer(){
 		MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-		mapperScannerConfigurer.setBasePackage("com.stone.**.mapper");
+		mapperScannerConfigurer.setBasePackage(get("mybatis.base.package", "com.**.mapper"));
 		return mapperScannerConfigurer;
 	}
 	

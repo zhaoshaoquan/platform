@@ -1,5 +1,7 @@
 package com.stone.dao.config;
 
+import static com.stone.commons.GlobalConfig.get;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -10,12 +12,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 
-@Configuration
+//@Configuration
 public class HibernateConfig implements BeanFactoryPostProcessor, Ordered {
 	private static final Logger log = LoggerFactory.getLogger(HibernateConfig.class);
 	
@@ -30,7 +31,7 @@ public class HibernateConfig implements BeanFactoryPostProcessor, Ordered {
 		if(dataSource != null){
 			LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();//hibernate4
 			sessionFactoryBean.setDataSource(dataSource);
-			sessionFactoryBean.setPackagesToScan(new String[]{"com.stone.**.domain","org.**.domain"});
+			sessionFactoryBean.setPackagesToScan(get("hibernate.base.packages", "com.**.domain").split(","));
 			sessionFactoryBean.setHibernateProperties(hibernateProperties());
 			beanFactory.registerSingleton("sessionFactoryBean", sessionFactoryBean);
 		}

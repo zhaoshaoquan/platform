@@ -9,15 +9,13 @@ import jxl.format.Alignment;
  * @date 2015年8月10日 上午10:29:29
  */
 public class ExtColumn implements Serializable{
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1136108581287298536L;
 	private String text;
 	private String dataIndex;
 	private int width;
 	private String align;
 	private boolean hidden;
 	private ExtColumn []columns;
-	
 	//该节点相对于根节点的深度
 	private int depth;
 	//该节点下叶子节点的个数

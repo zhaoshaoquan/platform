@@ -16,5 +16,10 @@ public class DemoDaoImpl extends AbstractJpaGeneralDao<Demo, Integer> implements
 		String hql = "select o from Demo o where o.name like ?";
 		return query(hql, "%"+name+"%");
 	}
+
+	@Override
+	public Class<Demo> entityClass(){
+		return Demo.class;
+	}
 	
 }

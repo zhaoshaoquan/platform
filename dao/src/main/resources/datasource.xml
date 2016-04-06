@@ -3,7 +3,7 @@
 <config>
 	<!-- 基本属性 driverClassName、url、username、password -->
 	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-	<property name="url" value="jdbc:mysql://127.0.0.1:3306/test"/>
+	<property name="url" value="jdbc:mysql://127.1.0.0:3306/test"/>
 	<property name="username" value="root"/>
 	<property name="password" value="password"/>
 	<!-- 如果密码是加密的情况，需要配置对数据库密码进行解密。还需要对filters添加config属性才能执行解密操作 -->

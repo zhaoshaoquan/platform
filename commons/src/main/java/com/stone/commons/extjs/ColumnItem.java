@@ -1,7 +1,6 @@
 package com.stone.commons.extjs;
 
 public class ColumnItem {
-
 	private String header;
 	private String dataIndex;
 	private String align;

@@ -22,7 +22,7 @@ public class Condition implements Serializable {
 	/** 属性类型 */
 	protected String propertyType;
 	/**组前缀括号*/
-	protected String groupPrefixBrackets ="";
+	protected String groupPrefixBrackets = "";
 
 	public Condition() {}
 
