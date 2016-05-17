@@ -31,12 +31,6 @@ public class SystemBasePath {
 				uploadDir = new File(get("upload.path"), "upload");
 			}
 			ueditorDir = new File(uploadDir, "ueditor");
-			
-			rootDir.mkdirs();
-			tempDir.mkdirs();
-			downloadDir.mkdirs();
-			uploadDir.mkdirs();
-			ueditorDir.mkdirs();
 		}catch(Exception e){
 			if(log.isErrorEnabled()){
 				log.error("初始化创建目录失败");
@@ -47,43 +41,48 @@ public class SystemBasePath {
 
 
 	public static File getRootDir(){
+		if(!rootDir.exists())rootDir.mkdirs();
 		return rootDir;
 	}
 
 	public static String getRootDirPath(){
-		return rootDir.getAbsolutePath();
+		return getRootDir().getAbsolutePath();
 	}
 
 	public static File getTempDir(){
+		if(!tempDir.exists())tempDir.mkdirs();
 		return tempDir;
 	}
 
 	public static String getTempDirPath(){
-		return tempDir.getAbsolutePath();
+		return getTempDir().getAbsolutePath();
 	}
-	
+
 	public static File getDownloadDir(){
+		if(!downloadDir.exists())downloadDir.mkdirs();
 		return downloadDir;
 	}
-	
+
 	public static String getDownloadDirPath(){
-		return downloadDir.getAbsolutePath();
+		return getDownloadDir().getAbsolutePath();
 	}
 
 	public static File getUploadDir(){
+		if(!uploadDir.exists())uploadDir.mkdirs();
 		return uploadDir;
 	}
-	
+
 	public static String getUploadDirPath(){
-		return uploadDir.getAbsolutePath();
+		return getUploadDir().getAbsolutePath();
 	}
 
 	public static File getUeditorDir(){
+		if(!ueditorDir.exists())ueditorDir.mkdirs();
 		return ueditorDir;
 	}
-	
+
 	public static String getUeditorDirPath(){
-		return ueditorDir.getAbsolutePath();
+		return getUeditorDir().getAbsolutePath();
 	}
 
 }
