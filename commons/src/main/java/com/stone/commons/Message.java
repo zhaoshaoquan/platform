@@ -3,74 +3,79 @@ package com.stone.commons;
 import java.io.Serializable;
 
 public class Message implements Serializable{
-	private static final long serialVersionUID = 8117244181993856881L;
+    private static final long serialVersionUID = 8117244181993856881L;
 
-	private int status;
-	private String text;
-	private boolean success = true;
-	private Object data;
+    private int status;
+    private String statusText;
+    private boolean success = true;
+    private Object data;
 
-	public Message(){
-	}
+    public Message() {
+    }
 
-	public Message(String text, boolean success){
-		this(200, text, success);
-	}
+    public Message(String statusText, boolean success) {
+        this(200, statusText, success);
+    }
 
-	public Message(int status, String text, Object data){
-		this(status, text, true, data);
-	}
+    public Message(String statusText, boolean success, Object data) {
+        this(200, statusText, success, data);
+    }
 
-	public Message(int status, String text, boolean success){
-		this(status, text, success, text);
-	}
+    public Message(int status, String statusText) {
+        this(status, statusText, status>=0);
+    }
 
-	public Message(String text, boolean success, Object data){
-		this(200, text, success, data);
-	}
+    public Message(int status, String statusText, Object data) {
+        this(status, statusText, status>=0, data);
+    }
 
-	public Message(int status, String text, boolean success, Object data){
-		this.text = text;
-		this.status = status;
-		this.success = success;
-		this.data = data;
-	}
+    public Message(int status, String statusText, boolean success) {
+        this(status, statusText, success, null);
+    }
 
-	public boolean isSuccess(){
-		return success;
-	}
+    public Message(int status, String statusText, boolean success, Object data) {
+        this.status = status;
+        this.statusText = statusText;
+        this.success = success;
+        this.data = data;
+    }
 
-	public void setSuccess(boolean success){
-		this.success = success;
-	}
+    public boolean isSuccess() {
+        return success;
+    }
 
-	public String getText(){
-		return text;
-	}
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
 
-	public void setText(String text){
-		this.text = text;
-	}
+    public String getStatusText() {
+        return statusText;
+    }
 
-	public int getStatus(){
-		return status;
-	}
+    public void setStatusText(String statusText) {
+        this.statusText = statusText;
+    }
 
-	public void setStatus(int status){
-		this.status = status;
-	}
+    public int getStatus() {
+        return status;
+    }
 
-	public Object getData(){
-		return data;
-	}
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
-	public void setData(Object data){
-		this.data = data;
-	}
+    public Object getData() {
+        return data;
+    }
 
-	@Override
-	public String toString(){
-		return "Message [status=" + status + ", text=" + text + ", success=" + success + ", data=" + data + "]";
-	}
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "Message [status=" + status + ", statusText=" + statusText
+                + ", success=" + success + ", data=" + data + "]";
+    }
 
 }

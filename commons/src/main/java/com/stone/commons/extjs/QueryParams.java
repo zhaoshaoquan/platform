@@ -1,5 +1,7 @@
 package com.stone.commons.extjs;
 
+import com.stone.commons.page.Page;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +34,13 @@ public class QueryParams {
 	 * 其它参数信息
 	 */
 	protected Map<String,Object> params = new HashMap<String,Object>();
+
+    /**
+     * 获取当前的pqge对象
+     */
+    public <T> Page<T> pageBean(){
+        return new Page<>(start, limit, params);
+    }
 
 	public int getStart() {
 		return start;
