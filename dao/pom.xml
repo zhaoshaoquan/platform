@@ -4,9 +4,10 @@
 	<parent>
 		<groupId>com.stone</groupId>
 		<artifactId>platform</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>dao</artifactId>
+	<version>${dao.version}</version>
 	
 	<properties>
 		<hibernate.version>4.3.1.Final</hibernate.version>
@@ -98,12 +99,12 @@
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${commons.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>config</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${config.version}</version>
 		</dependency>
 	</dependencies>
 </project>

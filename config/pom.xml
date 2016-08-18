@@ -4,9 +4,10 @@
 	<parent>
 		<groupId>com.stone</groupId>
 		<artifactId>platform</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>config</artifactId>
+	<version>${config.version}</version>
 	
 	<dependencies>
 		<dependency>
@@ -17,12 +18,12 @@
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${commons.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>jetty</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${jetty.version}</version>
 		</dependency>
 	</dependencies>
 </project>

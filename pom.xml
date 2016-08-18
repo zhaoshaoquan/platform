@@ -3,10 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.stone</groupId>
 	<artifactId>platform</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	
 	<properties>
+		<commons.version>1.0.0</commons.version>
+		<config.version>1.0.0</config.version>
+		<dao.version>1.0.0</dao.version>
+		<jetty.version>1.0.0</jetty.version>
 		<junit.version>4.12</junit.version>
 		<spring.version>4.2.0.RELEASE</spring.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -161,7 +165,6 @@
 		<module>dao</module>
 		<module>build</module>
 		<module>demo</module>
-		<module>extjs</module>
 		<module>baseinfo</module>
 	</modules>
 </project>

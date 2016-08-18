@@ -4,9 +4,9 @@
 	<property name="APP_NAME" value="stone"/>
 	<!--日志文件的保存路径,首先查找系统属性-Dlog.dir,如果存在就使用其；否则，在当前目录下创建名为logs目录做日志存放的目录 -->
 <!-- 	<property name="LOG_HOME" value="${catalina.home:-logs}/logs/${APP_NAME}" /> -->
-	<property name="LOG_HOME" value="${log.dir:-logs}/${APP_NAME}" />
+	<property name="LOG_HOME" value="${log.dir:-logs}/${APP_NAME}"/>
 	<!-- 日志输出格式 -->
-	<property name="ENCODER_PATTERN" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+	<property name="ENCODER_PATTERN" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
 	<!-- 设置项目上下文名称 -->
 	<contextName>${APP_NAME}</contextName>
 
@@ -55,17 +55,21 @@
 
 	<!-- 设置独立同步日志的日志级别 -->
 	<logger name="log.sync" level="DEBUG" addtivity="true">
-		<appender-ref ref="SYNC_FILE" />
+		<appender-ref ref="SYNC_FILE"/>
 	</logger>
 	
 	<!-- 设置org开头的包的日志级别 -->
-	<logger name="org" level="INFO" addtivity="false" />
-	
+	<logger name="org" level="INFO" addtivity="false"/>
+	<!-- 设置java.sql的日志级别 -->
+	<logger name="java.sql" level="DEBUG" addtivity="false"/>
+	<!-- 设置mybatis的日志级别 -->
+	<logger name="org.apache.ibatis" level="DEBUG" addtivity="false"/>
+
 	<!-- 设置默认的日志级别 -->
 	<root>
-		<level value="DEBUG" />
-		<appender-ref ref="STDOUT" />
-		<appender-ref ref="FILE" />
-		<appender-ref ref="ERROR_FILE" />
+		<level value="DEBUG"/>
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE"/>
+		<appender-ref ref="ERROR_FILE"/>
 	</root>
 </configuration>

@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.stone</groupId>
 		<artifactId>platform</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>build</artifactId>
 	<packaging>war</packaging>
@@ -13,27 +13,27 @@
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${commons.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>config</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${config.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>dao</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${dao.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>baseinfo</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>demo</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 	

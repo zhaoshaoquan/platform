@@ -4,20 +4,21 @@
 	<parent>
 		<groupId>com.stone</groupId>
 		<artifactId>platform</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>demo</artifactId>
+	<version>1.0.0</version>
 	
 	<dependencies>
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>dao</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${dao.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
 			<artifactId>baseinfo</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 </project>
