@@ -1,18 +1,11 @@
 package com.stone.build;
 
-import org.eclipse.jetty.server.Server;
-
-import com.stone.jetty.JettyUtil;
+import static com.stone.jetty.JettyUtil.newJettyUtil;
 
 public class BuildStart {
 
 	public static void main(String[] args) {
-		try{
-			Server server = JettyUtil.createServer("/platform", 96);
-			server.start();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		newJettyUtil().createServer("/platform", 8080).start();
 	}
 
 }
