@@ -6,7 +6,7 @@
 		<artifactId>platform</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>baseinfo</artifactId>
+	<artifactId>stone-baseinfo</artifactId>
 	
 	<dependencies>
 		<dependency>

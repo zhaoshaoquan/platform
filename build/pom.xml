@@ -6,7 +6,7 @@
 		<artifactId>platform</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>build</artifactId>
+	<artifactId>stone-build</artifactId>
 	<packaging>war</packaging>
 	
 	<dependencies>
