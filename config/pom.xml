@@ -6,7 +6,7 @@
 		<artifactId>platform</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>config</artifactId>
+	<artifactId>stone-config</artifactId>
 	<version>${config.version}</version>
 	
 	<dependencies>
@@ -17,17 +17,13 @@
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
-			<artifactId>commons</artifactId>
+			<artifactId>stone-commons</artifactId>
 			<version>${commons.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
-			<artifactId>jetty</artifactId>
+			<artifactId>stone-jetty</artifactId>
 			<version>${jetty.version}</version>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<finalName>stone-${project.artifactId}-${project.version}</finalName>
-	</build>
 </project>

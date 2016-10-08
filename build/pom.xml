@@ -6,39 +6,33 @@
 		<artifactId>platform</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>build</artifactId>
+	<artifactId>stone-build</artifactId>
 	<packaging>war</packaging>
 	
 	<dependencies>
 		<dependency>
 			<groupId>com.stone</groupId>
-			<artifactId>commons</artifactId>
+			<artifactId>stone-commons</artifactId>
 			<version>${commons.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
-			<artifactId>config</artifactId>
+			<artifactId>stone-config</artifactId>
 			<version>${config.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
-			<artifactId>dao</artifactId>
+			<artifactId>stone-dao</artifactId>
 			<version>${dao.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.stone</groupId>
-			<artifactId>baseinfo</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.stone</groupId>
-			<artifactId>demo</artifactId>
+			<artifactId>stone-baseinfo</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 	
 	<build>
-		<finalName>stone-${project.artifactId}-${project.version}</finalName>
 		<resources>
 			<resource>
 				<filtering>true</filtering>
