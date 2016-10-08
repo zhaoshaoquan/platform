@@ -34,7 +34,6 @@ public class PlatformAnnotationConfiguration extends AnnotationConfiguration {
 		return Collections.emptyList();
 	}
 
-	
 	public void parseContainerPath(final WebAppContext context, final AnnotationParser parser)throws Exception{
         final Set<Handler> handlers = new HashSet<Handler>();
         handlers.addAll(_discoverableAnnotationHandlers);
