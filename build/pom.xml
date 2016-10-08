@@ -6,7 +6,7 @@
 		<artifactId>platform</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>stone-build</artifactId>
+	<artifactId>build</artifactId>
 	<packaging>war</packaging>
 	
 	<dependencies>
@@ -38,6 +38,7 @@
 	</dependencies>
 	
 	<build>
+		<finalName>stone-${project.artifactId}-${project.version}</finalName>
 		<resources>
 			<resource>
 				<filtering>true</filtering>

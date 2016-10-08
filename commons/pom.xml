@@ -6,7 +6,7 @@
 		<artifactId>platform</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>stone-commons</artifactId>
+	<artifactId>commons</artifactId>
 	<version>${commons.version}</version>
 	
 	<dependencies>
@@ -61,4 +61,8 @@
 			<version>1.10</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<finalName>stone-${project.artifactId}-${project.version}</finalName>
+	</build>
 </project>

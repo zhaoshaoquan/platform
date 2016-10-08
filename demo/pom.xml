@@ -6,7 +6,7 @@
 		<artifactId>platform</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>stone-demo</artifactId>
+	<artifactId>demo</artifactId>
 	<version>1.0.0</version>
 	
 	<dependencies>
@@ -21,4 +21,8 @@
 			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<finalName>stone-${project.artifactId}-${project.version}</finalName>
+	</build>
 </project>
