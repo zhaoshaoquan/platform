@@ -48,8 +48,7 @@ public class JettyUtil {
 			ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
             Resource[] resources = resourcePatternResolver.getResources("classpath*:META-INF/resources");
 
-			MultiResource baseResource = new MultiResource();
-            baseResource.addResource(webapp);
+			MultiResource baseResource = new MultiResource(webapp);
 			for(Resource resource : resources){
 				baseResource.addResource(resource.getURI());
 			}
