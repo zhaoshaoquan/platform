@@ -10,51 +10,15 @@
 	<version>${jetty.version}</version>
 	
 	<properties>
-		<jetty-version>9.2.3.v20140905</jetty-version>
+		<jetty-version>9.3.13.v20161014</jetty-version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-deploy</artifactId>
+			<groupId>org.eclipse.jetty.aggregate</groupId>
+			<artifactId>jetty-all</artifactId>
 			<version>${jetty-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-webapp</artifactId>
-			<version>${jetty-version}</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>javax.servlet</artifactId>
-					<groupId>org.eclipse.jetty.orbit</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-annotations</artifactId>
-			<version>${jetty-version}</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>javax.transaction</artifactId>
-					<groupId>org.eclipse.jetty.orbit</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-servlets</artifactId>
-			<version>${jetty-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-jmx</artifactId>
-			<version>${jetty-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>apache-jsp</artifactId>
-			<version>${jetty-version}</version>
+			<type>pom</type>
 		</dependency>
 	</dependencies>
 </project>
