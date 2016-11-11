@@ -29,10 +29,14 @@ public class GlobalConfig{
             filePaths.append(cpr.getURI()).append("\n");
             properties.load(new InputStreamReader(cpr.getInputStream(), "UTF-8"));
             ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
-            Resource[] resources = resourcePatternResolver.getResources("classpath*:META-INF/config/*.properties");
-            for(Resource resource : resources){
-                filePaths.append(resource.getURI()).append("\n");
-                properties.load(new InputStreamReader(resource.getInputStream(), "UTF-8"));
+            Resource[] resources;
+            String[] scanPath = {"classpath*:META-INF/config/*.properties", "classpath:*.properties"};
+            for(String path : scanPath){
+                resources = resourcePatternResolver.getResources(path);
+                for(Resource resource : resources){
+                    filePaths.append(resource.getURI()).append("\n");
+                    properties.load(new InputStreamReader(resource.getInputStream(), "UTF-8"));
+                }
             }
             logger.info(String.format("\n=====加载配置文件开始=====\n%s=====加载配置文件完成=====\n", filePaths.toString()));
         }catch(IOException e){
