@@ -159,12 +159,12 @@
 		</plugins>
 	</build>
 	<modules>
-		<module>jetty</module>
-		<module>commons</module>
-		<module>config</module>
-		<module>dao</module>
-		<module>build</module>
-		<module>demo</module>
-		<module>baseinfo</module>
+		<module>stone-jetty</module>
+		<module>stone-commons</module>
+		<module>stone-config</module>
+		<module>stone-dao</module>
+		<module>stone-build</module>
+		<module>stone-demo</module>
+		<module>stone-baseinfo</module>
 	</modules>
 </project>
