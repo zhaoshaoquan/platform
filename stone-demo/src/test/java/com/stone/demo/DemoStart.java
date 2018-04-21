@@ -5,7 +5,7 @@ import static com.stone.jetty.JettyUtil.newJettyUtil;
 public class DemoStart {
 
 	public static void main(String[] args) {
-		newJettyUtil().createServer("/platform", 96).start();
+		newJettyUtil().createServer("/platform", 8080).start();
 	}
 
 }
